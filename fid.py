@@ -7,7 +7,7 @@ import numpy as np
 from scipy import linalg
 from tqdm import tqdm
 
-from model import Generator
+from conv3_model import Generator
 from calc_inception import load_patched_inception_v3
 
 
@@ -70,26 +70,25 @@ if __name__ == "__main__":
         help="number of samples to calculate mean for truncation",
     )
     parser.add_argument(
-        "--batch", type=int, default=64, help="batch size for the generator"
+        "--batch", type=int, default=256, help="batch size for the generator"
     )
     parser.add_argument(
         "--n_sample",
         type=int,
-        default=50000,
+        default=92224,
         help="number of the samples for calculating FID",
     )
     parser.add_argument(
-        "--size", type=int, default=256, help="image sizes for generator"
+        "--size", type=int, default=128, help="image sizes for generator"
     )
     parser.add_argument(
         "--inception",
         type=str,
-        default=None,
-        required=True,
+        default="./inception_mydatasets.pkl",
         help="path to precomputed inception embedding",
     )
     parser.add_argument(
-        "ckpt", metavar="CHECKPOINT", help="path to generator checkpoint"
+        "--ckpt",default="./560000.pt", metavar="CHECKPOINT", help="path to generator checkpoint"
     )
 
     args = parser.parse_args()

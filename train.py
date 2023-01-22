@@ -459,7 +459,8 @@ if __name__ == "__main__":
     if args.arch == 'stylegan2':
         # from model import Generator, Discriminator
         # from conv3_model import Generator, Discriminator
-        from unet_model import Generator, Discriminator
+        # from unet_model import Generator, Discriminator
+        from model_forward import Generator,Discriminator
         # from unet_model_3 import Generator, Discriminator
         # from unet_model_2 import Generator,Discriminator
     elif args.arch == 'swagan':
